@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'Berlin Sans FB Demi';
-            src: url('path/to/brlnsdb.ttf') format('truetype'); /* Replace with the correct path to the font file */
+            src: url('brlnsdb.ttf') format('truetype');
         }
 
         body {
@@ -25,7 +25,7 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px; /* Set a fixed width for the container */
+            width: 300px;
         }
         input[type="password"] {
             padding: 10px;
@@ -57,7 +57,7 @@
             border: none;
             border-radius: 12px;
             cursor: pointer;
-            width: 100%; /* Ensure download button is also centered */
+            width: 100%;
         }
         .download-btn:hover {
             background-color: #0056b3;
@@ -75,29 +75,29 @@
     <h2>Please Enter the Password</h2>
     <input type="password" id="password" placeholder="Enter password">
     <button class="submit-btn" onclick="checkPassword()">Submit</button>
-    <p class="info-text">Please email <a href="mailto:vaahakaonlinemv@gmail.com">vaahakaonlinemv@gmail.com</a> if you don't know the password</p>
+    <p class="info-text">Please ask the person that sent you this, if you don't know the password</p>
     
     <button class="download-btn" id="downloadBtn" onclick="downloadAPK()">DOWNLOAD</button>
 </div>
 
 <script>
-    const correctPassword = "n1psxdars9"; // Replace with your actual password
+    const correctPassword = "n1psxdars9";
 
     function checkPassword() {
         const enteredPassword = document.getElementById("password").value;
         if (enteredPassword === correctPassword) {
-            document.getElementById("downloadBtn").style.display = "block"; // Show download button
+            document.getElementById("downloadBtn").style.display = "block";
             alert("Click 'Download' below to begin downloading");
         } else {
-            alert("Incorrect password. IF you dont know the password please drop a mail to 'vaahakaonlinemv@gmail.com'");
+            alert("Incorrect password. IF you dont know the password please drop a mail to 'zainulaabidheenyoosuf@gmail.com'");
         }
     }
 
     function downloadAPK() {
-        const apkUrl = "https://fastupload.io/1f650e426da23315"; // Replace with the actual APK file path
+        const apkUrl = "https://fastupload.io/1f650e426da23315";
         const link = document.createElement('a');
         link.href = apkUrl;
-        link.download = "Free TV"; // Replace with your app's name
+        link.download = "Free TV";
         link.click();
     }
 </script>
