@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free TV App Download</title>
+    <style>
+        @font-face {
+            font-family: 'Berlin Sans FB Demi';
+            src: url('path/to/brlnsdb.ttf') format('truetype'); /* Replace with the correct path to the font file */
+        }
+
+        body {
+            font-family: 'Berlin Sans FB Demi', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Set a fixed width for the container */
+        }
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80%;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .download-btn {
+            display: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%; /* Ensure download button is also centered */
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+        .info-text {
+            font-family: 'Bahnschrift', sans-serif;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Please Enter the Password</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <button class="submit-btn" onclick="checkPassword()">Submit</button>
+    <p class="info-text">Please email <a href="mailto:vaahakaonlinemv@gmail.com">vaahakaonlinemv@gmail.com</a> if you don't know the password</p>
+    
+    <button class="download-btn" id="downloadBtn" onclick="downloadAPK()">DOWNLOAD</button>
+</div>
+
+<script>
+    const correctPassword = "n1psxdars9"; // Replace with your actual password
+
+    function checkPassword() {
+        const enteredPassword = document.getElementById("password").value;
+        if (enteredPassword === correctPassword) {
+            document.getElementById("downloadBtn").style.display = "block"; // Show download button
+            alert("Click 'Download' below to begin downloading");
+        } else {
+            alert("Incorrect password. IF you dont know the password please drop a mail to 'vaahakaonlinemv@gmail.com'");
+        }
+    }
+
+    function downloadAPK() {
+        const apkUrl = "https://fastupload.io/1f650e426da23315"; // Replace with the actual APK file path
+        const link = document.createElement('a');
+        link.href = apkUrl;
+        link.download = "Free TV"; // Replace with your app's name
+        link.click();
+    }
+</script>
+
+</body>
+</html>
