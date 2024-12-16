@@ -9,9 +9,10 @@
             font-family: 'Berlin Sans FB Demi';
             src: url('brlnsdb.ttf') format('truetype');
         }
+
         @font-face {
             font-family: 'Montserrat';
-            src: url('montserrat.ttf') format('truetype');
+            src: url('Montserrat-Regular.ttf') format('truetype');
         }
 
         body {
@@ -22,7 +23,6 @@
             height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
-            flex-direction: column;
         }
 
         .container {
@@ -32,7 +32,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
-            margin-bottom: 20px;
+            display: none;
         }
 
         input[type="password"] {
@@ -81,36 +81,39 @@
             font-size: 14px;
         }
 
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
         .changelog {
-            text-align: center;
             margin-top: 20px;
-            padding: 10px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-
-        .version {
-            font-size: 18px;
-            font-family: 'Berlin Sans FB Demi', sans-serif;
-            margin-bottom: 10px;
-        }
-
-        .changes {
-            font-size: 14px;
-            font-family: 'Montserrat', sans-serif;
             text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            display: none;
         }
 
-        /* Animation for changelog */
-        .changes span {
-            opacity: 0;
-            display: inline-block;
+        .changelog h3 {
+            font-family: 'Berlin Sans FB Demi', sans-serif;
         }
 
         .fade-in {
-            animation: fadeIn 0.05s ease-in forwards;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 0.05s forwards;
         }
 
         @keyframes fadeIn {
@@ -138,13 +141,16 @@
     <button class="submit-btn" onclick="checkPassword()">Submit</button>
     <p class="info-text">Please ask the person that sent you this, if you don't know the password</p>
     <button class="download-btn" id="downloadBtn" onclick="downloadAPK()">DOWNLOAD</button>
-</div>
 
-<div class="changelog">
-    <p class="version">Version 1.4.2</p>
-    <p class="changes" id="changesText">
-        <!-- Text content added dynamically for animation -->
-    </p>
+    <div class="changelog" id="changelog">
+        <h3>Version 1.4.2</h3>
+        <ul>
+            <li class="fade-target">- Added Dhaaris TV</li>
+            <li class="fade-target">- FIxed Major Bugs</li>
+            <li class="fade-target">- Updated user interface for better usability</li>
+            <li class="fade-target">- Fixed the mis-alignment of the video player</li>
+        </ul>
+    </div>
 </div>
 
 <script>
@@ -171,38 +177,20 @@
     const video = document.getElementById("introVideo");
     const videoContainer = document.getElementById("videoContainer");
     const mainContainer = document.getElementById("mainContainer");
+    const changelog = document.getElementById("changelog");
 
     video.onended = () => {
         videoContainer.style.display = "none";
         mainContainer.style.display = "block";
-    };
-    
-    // Changelog fade-in animation
-    const changes = [
-        "• Added Dhaaris TV",
-        "• Improved UI design for better user experience",
-        "• Fixed minor bugs in the app",
-        "• Removed broken channel"
-    ];
 
-    const changesText = document.getElementById("changesText");
-
-    // Display changes with animation
-    let delay = 0;
-    changes.forEach((change, index) => {
-        const line = document.createElement('div');
-        [...change].forEach((letter) => {
-            const span = document.createElement('span');
-            span.textContent = letter;
-            span.style.animationDelay = `${delay}s`;
-            span.classList.add('fade-in');
-            line.appendChild(span);
-            delay += 0.05; // Adjust delay for each letter
+        // Trigger changelog fade-in animation
+        changelog.style.display = "block";
+        const fadeTargets = document.querySelectorAll(".fade-target");
+        fadeTargets.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+            el.classList.add("fade-in");
         });
-        const lineBreak = document.createElement('br');
-        line.appendChild(lineBreak);
-        changesText.appendChild(line);
-    });
+    };
 </script>
 
 </body>
