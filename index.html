@@ -174,30 +174,18 @@
 </div>
 
 <script>
+    const correctPassword = "n1psxdars9"; // Ma Sha Allah haadha visnun thooney dho inspect ah vadhegen password thi hoadhee. "من غشنا فليس منا"
+
     function checkPassword() {
         const enteredPassword = document.getElementById("password").value;
-
-        fetch("http://localhost:3000/validate-password", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ password: enteredPassword }),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.success) {
-                document.getElementById("downloadBtn").style.display = "block";
-                alert("Password correct. Click 'Download' below to begin downloading.");
-            } else {
-                alert(data.message || "Incorrect password. Please try again.");
-            }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            alert("An error occurred. Please try again.");
-        });
+        if (enteredPassword === correctPassword) {
+            document.getElementById("downloadBtn").style.display = "block";
+            alert("Click 'Download' below to begin downloading");
+        } else {
+            alert("Incorrect password. IF you don't know the password please drop a mail to 'zainulaabidheenyoosuf@gmail.com'");
+        }
     }
+
 
     function downloadAPK() {
         const apkUrl = "https://fastupload.io/1f650e426da23315";
