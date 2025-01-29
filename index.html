@@ -169,9 +169,9 @@
     </div>
 
     <p class="info-text">
-        Join <a href="https://t.me/freetvmv" target="_blank">Hilay TV</a> on telegram and stand against the scammers!
+        Join <a href="https://t.me/freetvmv" target="_blank">Hilay TV</a> on telegram and wait for the big release!
     </p>
-    <p class="info-text">(Note: They do not have anything to do with me)</p>
+    <p class="info-text">(Note: Hilay TV does not have anything to do with me)</p>
 </div>
 
 <div class="container">
@@ -197,12 +197,15 @@
 
 
     function downloadAPK() {
-        const apkUrl = "https://fastupload.io/081f2e4f1cc37123";
+        const apkUrl = "freetv.apk";
         const link = document.createElement('a');
         link.href = apkUrl;
-        link.download = "Free TV";
+        link.download = "freetv.apk";
+        document.body.appendChild(link);
         link.click();
+        document.body.removeChild(link);
     }
+
 
         const video = document.getElementById("introVideo");
         const videoContainer = document.getElementById("videoContainer");
