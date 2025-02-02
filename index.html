@@ -39,35 +39,9 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 500px;
-            display: none;
-        }
-
-        input[type="password"] {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 80%;
-        }
-
-        .submit-btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 80%;
-        }
-
-        .submit-btn:hover {
-            background-color: #45a049;
         }
 
         .download-btn {
-            display: none;
             padding: 10px 20px;
             font-size: 16px;
             background-color: #007bff;
@@ -92,28 +66,12 @@
             margin-top: 20px;
             text-align: left;
             font-family: 'Montserrat', sans-serif;
-            display: none;
         }
 
         .changelog h3 {
             font-family: 'Berlin Sans FB Demi', sans-serif;
         }
 
-        .fade-in {
-            display: inline-block;
-            opacity: 0;
-            animation: fadeIn 0.05s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
         a {
             text-decoration: none;
             color: rgb(48, 48, 163);
@@ -128,76 +86,26 @@
 </head>
 <body>
 
-<div class="container" id="mainContainer">
-    <h2>Please Enter the Password</h2>
-    <input type="password" id="password" placeholder="Enter password">
-    <button class="submit-btn" onclick="checkPassword()">Submit</button>
-    <p class="info-text">Please ask the person that sent you this, if you don't know the password</p>
-    <button class="download-btn" id="downloadBtn" onclick="downloadAPK()">DOWNLOAD</button>
+<div class="container">
+    <h1>FreeTV MV</h1>
+    <button class="download-btn" onclick="downloadAPK()">DOWNLOAD</button>
 
-    <div class="changelog" id="changelog">
-        <h3>Version 1.0</h3>
-        <div>
-            <p class="fadeIn">- Launched Free TV App</p>
-            <p class="fadeIn">- Fixed Major Bugs</p>
-        </div>
+    <div class="changelog">
+        <h2>Version 1.0</h2>
+        <h4 style="color: lightslategray;">02/02/2025</h4>
+        <p>- Launched Free TV App</p>
     </div>
 
     <p class="info-text">
-        Join <a href="https://t.me/freetv_mv" target="_blank">FreeTV MV</a> on telegram to be notified on updates!
+        Join <a href="https://t.me/freetv_mv" target="_blank">FreeTV MV</a> on telegram to get Updates!
     </p>
 </div>
 
-<div class="container">
-    <h2>Please Enter the Password</h2>
-    <input type="password" id="password" placeholder="Enter password">
-    <button class="submit-btn" onclick="checkPassword()">Submit</button>
-    <p class="info-text">Please ask the person that sent you this, if you don't know the password</p>
-    <button class="download-btn" id="downloadBtn" style="display: none;" onclick="downloadAPK()">DOWNLOAD</button>
-</div>
-
 <script>
-    const correctPassword = "" or "123"; // Ma Sha Allah haadha visnun thooney dho inspect ah vadhegen password thi hoadhee. "من غشنا فليس منا"
-
-    function checkPassword() {
-        const enteredPassword = document.getElementById("password").value;
-        if (enteredPassword === correctPassword) {
-            document.getElementById("downloadBtn").style.display = "block";
-            alert("Click 'Download' below to begin downloading");
-        } else {
-            alert("Incorrect password. IF you don't know the password please ask the person who sent you this'");
-        }
-    }
-
-
     function downloadAPK() {
-        const apkUrl = "freetv.rar";
-        const link = document.createElement('a');
-        link.href = apkUrl;
-        link.download = "https://drive.proton.me/urls/WKKEK3QWEW#eghMQ8y1IZsv";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        window.location.href = "https://drive.proton.me/urls/WKKEK3QWEW#eghMQ8y1IZsv";
     }
-    
-        function showContent() {
-        mainContainer.style.display = "block";
-
-        changelog.style.display = "block";
-        const fadeTargets = document.querySelectorAll(".fade-target");
-        fadeTargets.forEach((el, index) => {
-            el.style.animationDelay = `${index * 0.2}s`;
-            el.classList.add("fade-in");
-        });
-    }
-
-    video.onended = showContent;
-
-    videoContainer.addEventListener("click", (event) => {
-        if (event.target === videoContainer) {
-            showContent();
-        }
-    });
 </script>
+
 </body>
 </html>
